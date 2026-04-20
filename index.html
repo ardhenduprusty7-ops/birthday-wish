@@ -5,50 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 17th Birthday!</title>
     <style>
+        /* Modern Gradient Background */
         body {
-            background-color: #fce4ec;
+            background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
         }
+
+        /* Floating Hearts Animation */
+        .floating-heart {
+            position: absolute;
+            color: rgba(240, 98, 146, 0.4);
+            font-size: 20px;
+            animation: float 6s infinite ease-in;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Elegant Birthday Card */
         .card {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             text-align: center;
-            max-width: 400px;
-            border: 2px solid #f06292;
+            max-width: 450px;
+            border: 4px double #f8bbd0;
+            position: relative;
         }
-        h1 { color: #d81b60; margin-bottom: 10px; }
-        p { color: #555; line-height: 1.6; font-size: 1.1em; }
-        .song-box {
-            margin-top: 25px;
-            padding: 15px;
-            background: #fff1f5;
-            border-radius: 10px;
-            border-left: 5px solid #ec407a;
+
+        .card::after {
+            content: "✨";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 40px;
         }
-        .heart { color: #e91e63; font-size: 1.5em; }
+
+        h1 { 
+            color: #880e4f; 
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        p { 
+            color: #444; 
+            line-height: 1.8; 
+            font-size: 1.2em; 
+            font-style: italic;
+        }
+
+        .song-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff9fa;
+            border: 1px solid #f48fb1;
+            border-radius: 15px;
+        }
+
+        .song-title {
+            color: #c2185b;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .lyrics {
+            color: #ad1457;
+            font-size: 0.95em;
+        }
+
+        .bday-text {
+            color: #d81b60;
+            font-weight: bold;
+            font-size: 1.4em;
+        }
     </style>
 </head>
 <body>
 
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.delay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+    </script>
+
     <div class="card">
-        <div class="heart">❤️</div>
-        <h1>Happy 17th Birthday!</h1>
-        <p>To my wonderful wife, may your day be as beautiful and bright as your smile. Cheers to another year of amazing memories together!</p>
+        <span style="font-size: 3em;">🎂</span>
+        <h1>Happy 17th</h1>
+        <div class="bday-text">To My Dear Wife</div>
+        <p>"May your year be as beautiful as the sparkle in your eyes and as sweet as your heart."</p>
         
-        <div class="song-box">
-            <strong>🎵 Now Playing in my Heart:</strong><br>
-            <em>"Tum Se Hi" — Mohit Chauhan</em>
-            <p style="font-size: 0.9em; margin-top: 5px; color: #880e4f;">
-                "Aadha hai moon, aadhi hai raat...<br>
-                Tum se hi din hota hai, surmayi shaam aati hai."
-            </p>
+        <div class="song-section">
+            <span class="song-title">🎵 Romantic Dedication</span>
+            <div class="lyrics">
+                <strong>"Kesariya"</strong><br>
+                <em>"Kesariya tera ishq hai piya,<br>
+                Rang jaaun jo main haath lagaaun..."</em>
+            </div>
         </div>
     </div>
 
